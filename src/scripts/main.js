@@ -4,6 +4,12 @@ import { SinkRepair } from "./SinkRepair.js"
 
 const mainContainer = document.querySelector("#container")
 
+mainContainer.addEventListener(
+    "stateChanged",
+    customEvent => {
+        render()
+    }
+)
 const render = () => {
     fetchRequests()
     .then(
@@ -14,4 +20,5 @@ const render = () => {
 }
 
 render()
+
 
