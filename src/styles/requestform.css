@@ -1,0 +1,33 @@
+.serviceForm {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(209, 180, 209);
+    padding: 1em;
+}
+
+.field {
+    flex-direction: column;
+    font-size: x-large;
+    color:rgb(41, 36, 36);
+    margin: .25em;
+    padding: .25em;
+}
+
+.labels {
+    font-size: xx-large;
+}
+
+.button {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    color: rgb(235, 26, 26);
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    max-width: 25em;
+}
