@@ -1,5 +1,4 @@
 import {sendRequest} from "./dataAccess.js"
-// import {render} from "./main.js"
 
 const mainContainer = document.querySelector("#container")
 

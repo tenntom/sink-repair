@@ -1,4 +1,4 @@
-import { fetchRequests } from "./dataAccess.js"
+import { fetchRequests, fetchPlumbers } from "./dataAccess.js"
 import { SinkRepair } from "./SinkRepair.js"
 
 
@@ -12,8 +12,9 @@ mainContainer.addEventListener(
 )
 const render = () => {
     fetchRequests()
-    .then(
-        () => {
+        .then(fetchPlumbers)
+        // .then(fetchCompletions)
+        .then(() => {
             mainContainer.innerHTML = SinkRepair()
         }
     )
