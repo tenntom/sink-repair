@@ -1,4 +1,4 @@
-import { getRequests, deleteRequest, getPlumbers, saveCompletion } from "./dataAccess.js"
+import { getRequests, deleteRequest, getPlumbers, saveCompletion} from "./dataAccess.js"
 
 
 export const Requests = () => {
@@ -42,6 +42,19 @@ mainContainer.addEventListener(
     (event) => {
         if (event.target.id === "plumbers") {
             const [requestId, plumberId] = event.target.value.split("--")
+            // const requests = getRequests ()
+            // requests.find((request) => {
+            //     if( request.id === requestId) {
+            //     sendRequest(isComplete = true)
+            //     }
+            // })
+
+            // //     (request) => {
+            // for (request of requests) {
+            //         if (request.id===requestId) {
+            //             sendRequest(request.isComplete = true)
+            //         }
+            //     }
             /*
                 This object should have 3 properties
                    1. requestId
@@ -52,13 +65,14 @@ mainContainer.addEventListener(
             completion.requestId = requestId
             completion.plumberId = plumberId
             completion.dateCreated = "2021-05-12"
+            // requests.isComplete=true
             /*
             Invoke the function that performs the POST request
             to the `completions` resource for your API. Send the
             completion object as a parameter.
             */
             saveCompletion(completion)
-
+            // markComplete(requestId)
         }
     }
 )

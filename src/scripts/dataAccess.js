@@ -18,9 +18,7 @@ export const fetchRequests = () => {
         )
 }
 
-export const getRequests = () => {
-    return [...applicationState.requests]
-}
+
 
 export const fetchPlumbers = () => {
     return fetch(`${API}/plumbers`)
@@ -37,10 +35,33 @@ export const getPlumbers = () => {
 
 export const fetchCompletions = () => {
     return fetch(`${API}/completions`)
-    .then(response => response.json())
-    .then(
-        (completionData) => {
-        applicationState.completions = completionData
+        .then(response => response.json())
+        .then(
+            (completionData) => {
+                applicationState.completions = completionData
+            }
+        )
+}
+
+export const getCompletions = () => {
+    return [...applicationState.completions]
+}
+
+
+
+
+
+export const getRequests = () => {
+    let requests = [...applicationState.requests]
+    for (const request of requests) {
+        let myCompletions = [...applicationState.completions]
+        for (const completion of myCompletions) {
+            if (request.id === completion.requestId) {
+                request.isComplete = true
+            }
+        }
+    } return requests.sort((current, next)=> {
+        current.isComplete - next.isComplete
     })
 }
 
@@ -78,6 +99,46 @@ export const saveCompletion = (completedJob) => {
         })
 }
 
+// export const makeTrue = () => {
+//     return fetch(`${API}/requests/${id}`, { method: "PUT" })
+//         .then(
+//             () => {
+//                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+//             }
+//         )
+// }
+
+// export const markComplete = (requestId) => {
+//     const fetchOptions = {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(requestId)
+//     }
+
+// const specificRequest = () => {
+//     const requests = getRequests()
+//     for (const request of requests) {
+//         if (request.id === requestId) {
+//             return request
+//         }
+//     }
+// }
+
+// const thisRequest = specificRequest()
+
+
+//     return fetch(`${API}/requests/${requestId}`, fetchOptions)
+//         .then(response => response.json())
+//         .then(() => {
+//             // let requests = getRequests()
+//             if (request.id === requestId) {
+//                 request.isComplete = true
+//             }
+//         }
+//     )
+// }
 
 export const deleteRequest = (id) => {
     return fetch(`${API}/requests/${id}`, { method: "DELETE" })

@@ -9,6 +9,7 @@ mainContainer.addEventListener("click", clickEvent => {
         const userAddress = document.querySelector("input[name='serviceAddress']").value
         const userBudget = document.querySelector("input[name='serviceBudget']").value
         const userDate = document.querySelector("input[name='serviceDate']").value
+        
 
         // Make an object out of the user input
         const dataToSendToAPI = {
