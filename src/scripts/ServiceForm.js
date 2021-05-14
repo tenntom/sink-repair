@@ -2,6 +2,7 @@ import {sendRequest} from "./dataAccess.js"
 
 const mainContainer = document.querySelector("#container")
 
+//This function takes all the information entered into the form and sends it to the API.
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "submitRequest") {
         // Get what the user typed into the form fields
@@ -24,10 +25,7 @@ mainContainer.addEventListener("click", clickEvent => {
     }
 })
 
-
-
-
-
+//This is the html for our request form. 
 export const ServiceForm = () => {
     let html = `
     <div class="field">

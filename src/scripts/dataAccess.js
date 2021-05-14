@@ -1,13 +1,14 @@
 const API = "http://localhost:8088"
 const mainContainer = document.querySelector("#container")
 
-
+//This creates our application state to store data that comes in from the API. The three arrays are empty initially.
 const applicationState = {
     requests: [],
     plumbers: [],
     completions: []
 }
 
+//This retrieves the API data and stores it in the application state
 export const fetchRequests = () => {
     return fetch(`${API}/requests`)
         .then(response => response.json())
@@ -18,8 +19,7 @@ export const fetchRequests = () => {
         )
 }
 
-
-
+//This retrieves the API data and stores it in the application state
 export const fetchPlumbers = () => {
     return fetch(`${API}/plumbers`)
         .then(response => response.json())
@@ -29,10 +29,14 @@ export const fetchPlumbers = () => {
             }
         )
 }
+
+
+//This function creates a copy of the local data to use in other functions.
 export const getPlumbers = () => {
     return [...applicationState.plumbers]
 }
 
+//This retrieves the API data and stores it in the application state.
 export const fetchCompletions = () => {
     return fetch(`${API}/completions`)
         .then(response => response.json())
@@ -43,27 +47,24 @@ export const fetchCompletions = () => {
         )
 }
 
+//This makes a copy for use in other functions.
 export const getCompletions = () => {
     return [...applicationState.completions]
 }
 
 
-
-
-
+//This one makes a copy of the request for local use, and it also searches through the items in that array, assigns an isComplete=true valule to those that have corresponding completion RequestIds, and then creates a new array with the isComplete = true items at the end.
 export const getRequests = () => {
     let requests = [...applicationState.requests]
     const displayRequests = []
     for (const request of requests) {
         let myCompletions = [...applicationState.completions]
         for (const completion of myCompletions) {
-            if (request.id === parseInt(completion.requestId)) {
+            if (request.id === completion.requestId) {
                 request.isComplete = true
-                //     displayRequests.push(request)
-                // } else {
-                //     displayRequests.unshift(request)
             }
         }
+        // I don't understand why the function below did not work. I had a return requests afterward.
         // } requests.sort((current, next)=> {
         //     return current.isComplete - next.isComplete
     }
@@ -76,8 +77,9 @@ export const getRequests = () => {
 
     return displayRequests
 }
+//Also, I have no idea how to get the completed request to show up in a different color.
 
-
+//This sends requests to the API and fetches the updated information.
 export const sendRequest = (userServiceRequest) => {
     const fetchOptions = {
         method: "POST",
@@ -95,6 +97,7 @@ export const sendRequest = (userServiceRequest) => {
         })
 }
 
+//This function sends the completion information to the API and returns the updated information.
 export const saveCompletion = (completedJob) => {
     const fetchOptions = {
         method: "POST",
@@ -111,47 +114,7 @@ export const saveCompletion = (completedJob) => {
         })
 }
 
-// export const makeTrue = () => {
-//     return fetch(`${API}/requests/${id}`, { method: "PUT" })
-//         .then(
-//             () => {
-//                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-//             }
-//         )
-// }
-
-// export const markComplete = (requestId) => {
-//     const fetchOptions = {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(requestId)
-//     }
-
-// const specificRequest = () => {
-//     const requests = getRequests()
-//     for (const request of requests) {
-//         if (request.id === requestId) {
-//             return request
-//         }
-//     }
-// }
-
-// const thisRequest = specificRequest()
-
-
-//     return fetch(`${API}/requests/${requestId}`, fetchOptions)
-//         .then(response => response.json())
-//         .then(() => {
-//             // let requests = getRequests()
-//             if (request.id === requestId) {
-//                 request.isComplete = true
-//             }
-//         }
-//     )
-// }
-
+//This deletes requests and also magically deletes the associated completions. I don't get how that works, but I guess it is related to the "DELETE" method for json.
 export const deleteRequest = (id) => {
     return fetch(`${API}/requests/${id}`, { method: "DELETE" })
         .then(
