@@ -1,19 +1,156 @@
 {
-    "plumbers": [],
-    "completions": [],
-    "requests": [
-        {
-            "id": 1,
-            "description": "Aut sint voluptatem fugit eius quas molestiae modi.",
-            "address": "34445 Bianka Ports",
-            "budget": 400,
-            "neededBy": "2021-08-27"
-        }, {
-            "id": 2,
-            "description": "Fix a leaky dishwasher",
-            "address": "100 Main Street",
-            "budget": 250,
-            "neededBy": "2021-07-01"
-        }
-    ]
+  "plumbers": [
+    {
+      "id": 1,
+      "name": "Maude"
+    },
+    {
+      "id": 2,
+      "name": "Merle"
+    }
+  ],
+  "completions": [
+    {
+      "requestId": "2",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 12
+    },
+    {
+      "requestId": "2",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 18
+    },
+    {
+      "requestId": "2",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 20
+    },
+    {
+      "requestId": "2",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 27
+    },
+    {
+      "requestId": "7",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 30
+    },
+    {
+      "requestId": "7",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 31
+    },
+    {
+      "requestId": "3",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 32
+    },
+    {
+      "requestId": "3",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 33
+    },
+    {
+      "requestId": "3",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 34
+    },
+    {
+      "requestId": "2",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 35
+    },
+    {
+      "requestId": "9",
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 36
+    },
+    {
+      "requestId": 10,
+      "plumberId": "1",
+      "dateCreated": "2021-05-12",
+      "id": 37
+    },
+    {
+      "requestId": 12,
+      "plumberId": 1,
+      "dateCreated": "2021-05-12",
+      "id": 39
+    },
+    {
+      "requestId": 14,
+      "plumberId": 2,
+      "dateCreated": "2021-05-12",
+      "id": 40
+    }
+  ],
+  "requests": [
+    {
+      "id": 2,
+      "description": "Fix a leaky dishwasher",
+      "address": "100 Main Street",
+      "budget": "250",
+      "neededBy": "2021-07-01"
+    },
+    {
+      "description": "clean sink",
+      "address": "100 main",
+      "budget": "100",
+      "neededBy": "2021-05-20",
+      "id": 3
+    },
+    {
+      "description": "fifth one",
+      "address": "100 go",
+      "budget": "300",
+      "neededBy": "2021-05-20",
+      "id": 7
+    },
+    {
+      "description": "new gasket",
+      "address": "oakdale",
+      "budget": "300",
+      "neededBy": "2021-05-12",
+      "id": 9
+    },
+    {
+      "description": "clean the pipes",
+      "address": "200 oak",
+      "budget": "1000",
+      "neededBy": "2021-05-12",
+      "id": 10
+    },
+    {
+      "description": "Test - complete",
+      "address": "20 dfadfa",
+      "budget": "100",
+      "neededBy": "2021-05-11",
+      "id": 12
+    },
+    {
+      "description": "Test - incompelte",
+      "address": "dafadfad",
+      "budget": "3000",
+      "neededBy": "2021-05-19",
+      "id": 13
+    },
+    {
+      "description": "test again",
+      "address": "dfadfa",
+      "budget": "30",
+      "neededBy": "2021-05-13",
+      "id": 14
+    }
+  ]
 }
