@@ -53,16 +53,28 @@ export const getCompletions = () => {
 
 export const getRequests = () => {
     let requests = [...applicationState.requests]
+    const displayRequests = []
     for (const request of requests) {
         let myCompletions = [...applicationState.completions]
         for (const completion of myCompletions) {
-            if (request.id === completion.requestId) {
+            if (request.id === parseInt(completion.requestId)) {
                 request.isComplete = true
+                //     displayRequests.push(request)
+                // } else {
+                //     displayRequests.unshift(request)
             }
         }
-    } return requests.sort((current, next)=> {
-        current.isComplete - next.isComplete
-    })
+        // } requests.sort((current, next)=> {
+        //     return current.isComplete - next.isComplete
+    }
+    for (const request2 of requests)
+    if (request2.isComplete === true) {
+        displayRequests.push(request2)
+    } else {
+        displayRequests.unshift(request2)
+    }
+
+    return displayRequests
 }
 
 

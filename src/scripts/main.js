@@ -14,7 +14,7 @@ const render = () => {
     fetchRequests()
         .then(fetchPlumbers)
         .then(fetchCompletions)
-        // .then(console.log(getRequests()))
+        .then(console.log(getRequests()))
         .then(() => {
             mainContainer.innerHTML = SinkRepair()
         }
