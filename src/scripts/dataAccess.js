@@ -54,9 +54,30 @@ export const getCompletions = () => {
 
 
 //This one makes a copy of the request for local use, and it also searches through the items in that array, assigns an isComplete=true valule to those that have corresponding completion RequestIds, and then creates a new array with the isComplete = true items at the end.
-export const getRequests = () => {
+
+export const getCompleteRequests = () => {
     let requests = [...applicationState.requests]
-    const displayRequests = []
+    const completeRequests = []
+    for (const request of requests) {
+        let myCompletions = [...applicationState.completions]
+        for (const completion of myCompletions) {
+            if (request.id === completion.requestId) {
+                request.plumberId = completion.plumberId
+                request.isComplete = true
+            }
+        }
+    }
+
+    for (const request2 of requests) {
+        if (request2.isComplete === true) {
+            completeRequests.unshift(request2)
+        }
+    } return completeRequests
+}
+
+export const getIncompleteRequests = () => {
+    let requests = [...applicationState.requests]
+    const incompleteRequests = []
     for (const request of requests) {
         let myCompletions = [...applicationState.completions]
         for (const completion of myCompletions) {
@@ -64,20 +85,15 @@ export const getRequests = () => {
                 request.isComplete = true
             }
         }
-        // I don't understand why the function below did not work. I had a return requests afterward.
-        // } requests.sort((current, next)=> {
-        //     return current.isComplete - next.isComplete
-    }
-    for (const request2 of requests)
-    if (request2.isComplete === true) {
-        displayRequests.push(request2)
-    } else {
-        displayRequests.unshift(request2)
     }
 
-    return displayRequests
+    for (const request2 of requests) {
+        if (request2.isComplete !== true) {
+            incompleteRequests.unshift(request2)
+        }
+    } return incompleteRequests
 }
-//Also, I have no idea how to get the completed request to show up in a different color.
+
 
 //This sends requests to the API and fetches the updated information.
 export const sendRequest = (userServiceRequest) => {

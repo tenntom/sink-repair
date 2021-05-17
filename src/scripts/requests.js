@@ -1,14 +1,15 @@
-import { getRequests, deleteRequest, getPlumbers, saveCompletion} from "./dataAccess.js"
+import { deleteRequest, getPlumbers, saveCompletion, getIncompleteRequests, getCompleteRequests} from "./dataAccess.js"
 
 //This is creating the area where we display the requests. The .map method goes through the requests array and creates an <li> item for each request in the array. The map method on the plumbers array puts the information from the plumbers array into a drop down menu. There is also a delete button on each item.
 export const Requests = () => {
-    const requests = getRequests()
+    const completedRequests = getCompleteRequests()
+    const incompleteRequests = getIncompleteRequests()
     const plumbers = getPlumbers()
 
     let html = "<ul>"
-    const requestStuff = requests.map(
+    const incompleteRequestStuff = incompleteRequests.map(
         (request) => {
-            return `<li> ${request.description}
+            return `<li class="incompleteRequests"> ${request.description}
             <select class="plumbers" id="plumbers">
             <option value="">Choose</option>
             ${
@@ -22,8 +23,24 @@ export const Requests = () => {
         </li> `
         }
     )
+    const completeRequestStuff = completedRequests.map(
+        (request) => {
+            return `<li class="completeRequests"> ${request.description} completed by 
+            ${
+                plumbers.map(
+                (plumber) => {
+                    if(plumber.id === request.plumberId) {
+                        return plumber.name
+                    }
+                }).join("")
+            }
+            <button class="request__delete" id = "request--${request.id}"> Delete</button >
+        </li> `
+        }
+    )
 
-    html += requestStuff.join("")
+    html += incompleteRequestStuff.join("")
+    html += completeRequestStuff.join("")
     html += "</ul>"    
     return html
 }
