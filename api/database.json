@@ -17,82 +17,22 @@
       "id": 12
     },
     {
-      "requestId": "2",
-      "plumberId": "1",
+      "requestId": 9,
+      "plumberId": 2,
       "dateCreated": "2021-05-12",
-      "id": 18
+      "id": 16
     },
     {
-      "requestId": "2",
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 20
-    },
-    {
-      "requestId": "2",
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 27
-    },
-    {
-      "requestId": "7",
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 30
-    },
-    {
-      "requestId": "7",
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 31
-    },
-    {
-      "requestId": "3",
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 32
-    },
-    {
-      "requestId": "3",
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 33
-    },
-    {
-      "requestId": "3",
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 34
-    },
-    {
-      "requestId": "2",
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 35
-    },
-    {
-      "requestId": "9",
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 36
-    },
-    {
-      "requestId": 10,
-      "plumberId": "1",
-      "dateCreated": "2021-05-12",
-      "id": 37
-    },
-    {
-      "requestId": 12,
+      "requestId": 13,
       "plumberId": 1,
       "dateCreated": "2021-05-12",
-      "id": 39
+      "id": 17
     },
     {
       "requestId": 14,
       "plumberId": 2,
       "dateCreated": "2021-05-12",
-      "id": 40
+      "id": 18
     }
   ],
   "requests": [
@@ -132,24 +72,24 @@
       "id": 10
     },
     {
-      "description": "Test - complete",
-      "address": "20 dfadfa",
-      "budget": "100",
-      "neededBy": "2021-05-11",
+      "description": "test - incomplete",
+      "address": "3 dfad",
+      "budget": "30",
+      "neededBy": "2021-05-04",
       "id": 12
     },
     {
-      "description": "Test - incompelte",
-      "address": "dafadfad",
-      "budget": "3000",
+      "description": "Test Complete 1",
+      "address": "10 maple street",
+      "budget": "1000",
       "neededBy": "2021-05-19",
       "id": 13
     },
     {
-      "description": "test again",
-      "address": "dfadfa",
-      "budget": "30",
-      "neededBy": "2021-05-13",
+      "description": "Test 2 complete",
+      "address": "100 north",
+      "budget": "1000",
+      "neededBy": "2021-05-19",
       "id": 14
     }
   ]

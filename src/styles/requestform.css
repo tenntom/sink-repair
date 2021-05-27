@@ -1,10 +1,9 @@
 .serviceForm {
     display: flex;
     flex-direction: column;
-    background-color: rgb(197, 197, 224);
+    background-color: rgb(210, 210, 230);
     padding: 1em;
     font-size: 24px;
-    max-width: 60%;
 }
 
 .serviceRequests {
@@ -36,4 +35,8 @@
     overflow: hidden;
     z-index: 1;
     max-width: 25em;
+}
+
+.completeRequests {
+    color:rgb(133, 118, 218)
 }
